@@ -1,4 +1,4 @@
-// Import Mapbox as an ESM module
+
 import mapboxgl from 'https://cdn.jsdelivr.net/npm/mapbox-gl@2.15.0/+esm';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
@@ -11,7 +11,7 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoic3poY29jbyIsImEiOiJjbWFxZmE4dnkwOTMyMmtvbnNzb
 
 
 
-// Initialize the map
+// initialize the map
 const map = new mapboxgl.Map({
   container: 'map', 
   style: 'mapbox://styles/mapbox/streets-v12',
@@ -79,7 +79,7 @@ map.on('load', async() => {
 
 
     } catch (error) {
-        console.error('Error loading JSON:', error); // Handle errors
+        console.error('Error loading JSON:', error); 
     }
 
     const stations = computeStationTraffic(jsonData.data.stations, trips);
@@ -107,10 +107,10 @@ map.on('load', async() => {
     }
 
     updatePositions();
-    map.on('move', updatePositions); // Update during map movement
-    map.on('zoom', updatePositions); // Update during zooming
-    map.on('resize', updatePositions); // Update on window resize
-    map.on('moveend', updatePositions); // Final adjustment after movement ends
+    map.on('move', updatePositions); 
+    map.on('zoom', updatePositions); 
+    map.on('resize', updatePositions); 
+    map.on('moveend', updatePositions); 
 
 
     const radiusScale = d3
